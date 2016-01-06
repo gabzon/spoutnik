@@ -126,7 +126,7 @@ array_multisort($date, SORT_ASC, $hour, SORT_ASC, $films_week);
                         <?php $movie_date = new DateTime($film['date']);  ?>
                         <h3 class="film-week-detail">
                             <?php echo utf8_encode(strftime("%a %e %b", $movie_date->getTimestamp())) . ', ' . $film['hour'] ; ?>
-                       
+
                         </h3>
                         <?php $director = get_the_terms($film['id'],'director'); ?>
                         <?php $country = get_the_terms($film['id'],'country'); ?>
@@ -134,7 +134,7 @@ array_multisort($date, SORT_ASC, $hour, SORT_ASC, $films_week);
                         <?php $year = get_the_terms($film['id'],'film-year'); ?>
                         <?php $format = get_the_terms($film['id'],'format'); ?>
                         <h5>
-                            <?php if ($director): ?>
+                            <!-- <?php if ($director): ?>
                                 <?php foreach ($director as $x) {
                                     echo $x->name . ' ';
                                 } ?>
@@ -167,7 +167,7 @@ array_multisort($date, SORT_ASC, $hour, SORT_ASC, $films_week);
                             <br>
                             <?php if (condition): ?>
                                 <?php echo ' ' . get_post_meta($post->ID,'film_duration',true); ?>
-                            <?php endif ?>
+                            <?php endif ?> -->
                         </h5>
                     </div>
                 <?php endforeach; ?>
