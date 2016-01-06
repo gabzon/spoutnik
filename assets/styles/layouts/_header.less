@@ -1,0 +1,89 @@
+#image-menu-container{
+    position:relative;
+    #image-menu-text{
+        position: relative;
+        a { color:white; }
+    }
+    #menu-image{
+        position:absolute;
+        z-index:9999;
+        top:0;
+        left:46%
+    }
+}
+
+#main-menu-front-page{
+    margin: 0;
+    #menu-image{position:absolute; left:46%}
+    > .row{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+#image-menu-container.normal-menu{
+    #image-menu-text{
+        a { color:black; }
+    }
+    .ui.vertical.segment{
+        padding-bottom: 0;
+    }
+}
+#top-menu.ui.fluid.menu{
+    position:relative;
+    margin: 0 0;
+    background: transparent;
+    border:0;
+    -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    border-radius: 0;
+    .item:before {
+        width: 0;
+    }
+    #menu-image{
+        position:absolute;
+        z-index:9999;
+        top:0;
+        left:46%
+    }
+}
+
+
+.ui.fluid.top.fixed.menu{
+    #menu-image{position:absolute; left:46%}
+}
+
+form{
+    ::-webkit-input-placeholder {
+        color: white !important;
+        font-family:'Suisse Intl','sans-serif';
+        font-weight:normal;
+        text-transform:uppercase;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: white !important;
+        font-family:'Suisse Intl','sans-serif';
+        font-weight:normal;
+        text-transform:uppercase;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+        color: white !important;
+        font-family:'Suisse Intl','sans-serif';
+        font-weight:normal;
+        text-transform:uppercase;
+    }
+
+    :-ms-input-placeholder {
+        color: white !important;
+        font-family:'Suisse Intl','sans-serif';
+        font-weight:normal;
+        text-transform:uppercase;
+    }
+    input[type="text"]{
+        font-family:'Suisse Intl','sans-serif' !important;
+        font-weight:normal;
+    }
+
+}
