@@ -27,8 +27,17 @@ $query = new WP_Query( $args );
                                 </a>
                             </span>
                             <br>
-                            <?php echo get_post_meta($post->ID,'event_landing',true) ?>
+                            <?php //echo get_post_meta($post->ID,'film_landing',true) ?>
                         </h4>
+                    </div>
+                    <div class="ui grid" style="position: absolute; right: 20px; bottom:0px;">
+                        <div class="computer tablet only row">
+                            <h3 class="ui icon header inverted">
+                                <a href="#land" style="color:white;">
+                                    <i class="circular chevron down icon"></i>
+                                </a>
+                            </h3>
+                        </div>
                     </div>
                 </li>
 

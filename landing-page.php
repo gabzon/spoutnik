@@ -9,7 +9,7 @@ $full_program = $theme_options['spoutnik_programme_complet'];
 <br>
 <div class="landing-content">
     <div class="gray-shadow">
-        <div class="ui stackable grid">
+        <div class="ui stackable grid" id="land">
             <div class="one wide column"></div>
             <div class="seven wide column">
                 <br>
@@ -18,7 +18,7 @@ $full_program = $theme_options['spoutnik_programme_complet'];
                 <h1 style="text-transform:uppercase">
                     <?php _e('TODAY ','sage'); ?><br>
                     <?php echo  utf8_encode(strftime("%A %e %B"));   ?>
-                </h1>                 
+                </h1>
                 <br>
             </div>
         </div>

@@ -644,7 +644,7 @@ msgstr "Pages:"
 
 #: ../templates/content-single-film.php:45 ../templates/today-films.php:27
 msgid "Director: "
-msgstr "Réalisateur:"
+msgstr "Réalisation:"
 
 #: ../templates/content-single-film.php:53 ../templates/today-films.php:35
 msgid "Country: "
