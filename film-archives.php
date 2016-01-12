@@ -9,16 +9,6 @@
     <?php echo get_the_category_list(); ?>
 <?php endwhile; ?>
 
-<?php $categories = get_terms(); ?>
-
-<?php the_taxonomies( 'before=<ul>&after=</ul>' ); ?>
-
-<?php
-$taxonomies = get_taxonomies();
-foreach ( $taxonomies as $taxonomy ) {
-    echo '<p>' . $taxonomy . '</p>';
-}
-?>
 
 <?php
 /*----------------------------------------------------------------------------*/
@@ -29,33 +19,37 @@ $parent_args = array(
     'orderby'           => 'name',
     'order'             => 'ASC',
     'hide_empty'        => true,
-    'parent'            => 0,
-);
-$children_args = array(
-    'orderby'           => 'name',
-    'order'             => 'ASC',
-    //'hide_empty'        => true,
-    'parent'            => 1,
 );
 
 $directors = get_terms($director, $parent_args);
-$cycles = get_terms($cycle, $children_args);
-?>
-<?php
+$cycles = get_terms($cycle, $parent_args);
+
 function nestedCategories($cat){
     if (count($cat) > 0) {
         foreach ($cat as $c){
             $link = get_term_link( $c );
-            echo '<a class="ui basic button" href="$link" style="font-weight:bold;">';
-            echo  $c->name;
+            echo '<a class="ui basic button" href="' . $link . '" style="font-weight:bold;margin-top: 5px;">';
+            echo $c->name;
+            $taxonomy_name = $c->taxonomy;
+            echo $c->term_id;
             echo '</a>';
             $parent_id = $c->term_id;
             $subcategories = get_terms ( 'taxonomy_name', array ( 'child_of' => $parent_id, 'hide_empty' => false, 'orderby' => 'name', 'order' => 'ASC', ) );
+            //then set the args for wp_list_categories
+            $termchildren = get_term_children( $c->term_id, $taxonomy_name );
+            if ($termchildren) {
+                echo '<br>';
+                foreach ( $termchildren as $child ) {
+                    $term = get_term_by( 'id', $child, $taxonomy_name );
+                    echo '<a href="' . get_term_link( $child, $taxonomy_name ) . '" class="ui basic button" style="margin-top: 5px;">' . $term->name . '</a>';
+                }
+            }
+        }
     }
-}
 }
 
 ?>
+
 <div class="ui container">
     <div class="">
         <h2><?php _e('Directors','sage'); ?></h2>
@@ -64,11 +58,6 @@ function nestedCategories($cat){
     <br>
     <div class="ui divider"></div>
     <h2><?php _e('Cycles','sage'); ?></h2>
-    <?php foreach ($cycles as $city): ?>
-        <?php $city_link = get_term_link( $city ); ?>
-        <a class="ui basic button" href="<?php echo $city_link; ?>" style="font-weight:bold;">
-            <?php echo $city->name; ?>
-        </a>
-    <?php endforeach; ?>
+    <?php nestedCategories($cycles); ?>
 </div>
 <br>
