@@ -51,29 +51,27 @@ function nestedCategories($cat){
 ?>
 
 <div class="ui container">
-    <div id="archive-tab" class="ui top attached tabular menu">
+    <div id="archive-tab" class="ui pointing secondary menu">
         <a class="active item" data-tab="first"><?php _e('Directors','sage'); ?></a>
         <a class="item" data-tab="second"><?php _e('Cycles','sage'); ?></a>
         <a class="item" data-tab="third"><?php _e('Collaborations','sage'); ?></a>
         <a class="item" data-tab="four"><?php _e('Events','sage'); ?></a>
-        <a class="item" data-tab="fifth"><?php _e('Chronologic','sage'); ?></a>
+        <a class="item" data-tab="fifth"><?php _e('Monthly','sage'); ?></a>
     </div>
-    <div class="ui bottom attached active tab segment" data-tab="first">
-
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="second">
-        Second
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="third">
-        Third
-    </div>
-    <div class="">
-        <h2><?php _e('Directors','sage'); ?></h2>
+    <div class="ui bottom attached active tab" data-tab="first">
         <?php get_template_part('templates/archives/directors'); ?>
     </div>
-    <br>
-    <div class="ui divider"></div>
-    <h2><?php _e('Cycles','sage'); ?></h2>
-    <?php nestedCategories($cycles); ?>
+    <div class="ui bottom attached tab" data-tab="second">
+        <?php get_template_part('templates/archives/cycles'); ?>
+    </div>
+    <div class="ui bottom attached tab" data-tab="third">
+        <?php get_template_part('templates/archives/collaborations'); ?>
+    </div>
+    <div class="ui bottom attached tab" data-tab="four">
+        <?php get_template_part('templates/archives/events'); ?>
+    </div>
+    <div class="ui bottom attached tab" data-tab="fifth">
+        <?php get_template_part('templates/archives/monthly'); ?>
+    </div>
 </div>
 <br>

@@ -27,7 +27,7 @@ if( $cats && is_array( $cats ) ) {
         $list .= '<div class="ui four column grid stackable">';
         foreach( $groups as $letter => $cats ) {
             $list .= '<div class="column">';
-            $list .= '<ul class="index">';
+            $list .= '<ul class="index" style="list-style-type: none; padding:0; margin:0;">';
             $list .= '<li><a name="' . $letter . '"></a><h5><a href="#cats_top" title="back to top" style="color:#f9001c">' . apply_filters( 'the_title', $letter ) . '</a></h5>';
             $list .= '<ul class="links">';
             // echo '<pre>';
@@ -49,7 +49,6 @@ if( $cats && is_array( $cats ) ) {
 ?>
 
 <div class="ui container">
-    <br>
     <div class="artist-list">
         <?php print $list; ?>
     </div>
