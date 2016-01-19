@@ -4,11 +4,6 @@
 */
 ?>
 
-<?php while (have_posts()) : the_post(); ?>
-    <?php get_template_part('templates/page', 'header'); ?>
-    <?php get_template_part('templates/content', 'page'); ?>
-    <?php echo get_the_category_list(); ?>
-<?php endwhile; ?>
 
 <?php
 /*----------------------------------------------------------------------------*/
@@ -51,6 +46,11 @@ function nestedCategories($cat){
 ?>
 
 <div class="ui container">
+    <?php while (have_posts()) : the_post(); ?>
+        <?php get_template_part('templates/page', 'header'); ?>
+        <?php get_template_part('templates/content', 'page'); ?>
+        <?php echo get_the_category_list(); ?>
+    <?php endwhile; ?>
     <div id="archive-tab" class="ui pointing secondary menu">
         <a class="active item" data-tab="first"><h4 style="text-transform: uppercase"><?php _e('Directors','sage'); ?></h4></a>
         <a class="item" data-tab="second"><h4 style="text-transform: uppercase"><?php _e('Cycles','sage'); ?></h4></a>
