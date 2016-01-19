@@ -1,4 +1,1 @@
-<?php
-
-
-echo 'hello from cycles';
+<?= "C'est pour bientôt"; ?>

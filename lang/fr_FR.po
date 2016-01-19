@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Spoutnik\n"
-"POT-Creation-Date: 2015-10-20 21:34+0100\n"
+"POT-Creation-Date: 2016-01-19 20:47+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -43,6 +43,26 @@ msgstr "Réglages"
 #: ../controller/default.php:30
 msgid "Save Settings"
 msgstr "Sauvegarder les réglages"
+
+#: ../film-archives.php:55 ../model/taxonomy/director.php:11
+msgid "Directors"
+msgstr "Réalisation"
+
+#: ../film-archives.php:56 ../model/taxonomy/cycle.php:10
+msgid "Cycles"
+msgstr "Cycles"
+
+#: ../film-archives.php:57
+msgid "Collaborations"
+msgstr "Collaborations"
+
+#: ../film-archives.php:58
+msgid "Events"
+msgstr "Evènements"
+
+#: ../film-archives.php:59
+msgid "Monthly"
+msgstr "Par mois"
 
 #: ../functions.php:28
 #, php-format
@@ -264,10 +284,6 @@ msgstr "Pays populaires"
 msgid "Search countries"
 msgstr "Rechercher dans les pays"
 
-#: ../model/taxonomy/cycle.php:10
-msgid "Cycles"
-msgstr "Cycles"
-
 #: ../model/taxonomy/cycle.php:11
 msgid "All Cycles"
 msgstr "Tous les cycles"
@@ -315,10 +331,6 @@ msgstr "Cycles populaires"
 #: ../model/taxonomy/cycle.php:23
 msgid "Search Cycles"
 msgstr "Rechercher dans les cycles"
-
-#: ../model/taxonomy/director.php:11
-msgid "Directors"
-msgstr "Réalisation"
 
 #: ../model/taxonomy/director.php:12
 msgid "All Directors"
@@ -687,7 +699,7 @@ msgstr "Aujourd’hui"
 msgid "Next 30 days"
 msgstr "Prochainement"
 
-#: ../templates/program/week.php:107
+#: ../templates/program/week.php:110
 msgid "Next 20 days"
 msgstr "Prochainement"
 
@@ -754,9 +766,6 @@ msgstr "Plus d’infos"
 #: ../templates/today-films.php:92
 msgid "Nothing at Spoutnik for today!"
 msgstr "Rien pour aujourd’hui au Spoutnik !"
-
-#~ msgid "Events"
-#~ msgstr "Evènements"
 
 #~ msgid "Parent Event:"
 #~ msgstr "Parent de l’évènement :"
