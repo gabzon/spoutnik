@@ -5,7 +5,7 @@
 ?>
 <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('templates/page', 'header'); ?>
-    <?php get_template_part('templates/content', 'page'); ?>
+    <?php //get_template_part('templates/content', 'page'); ?>
     <?php echo get_the_category_list(); ?>
 <?php endwhile; ?>
 
@@ -52,11 +52,11 @@ function nestedCategories($cat){
 
 <div class="ui container">
     <div id="archive-tab" class="ui pointing secondary menu">
-        <a class="active item" data-tab="first"><?php _e('Directors','sage'); ?></a>
-        <a class="item" data-tab="second"><?php _e('Cycles','sage'); ?></a>
-        <a class="item" data-tab="third"><?php _e('Collaborations','sage'); ?></a>
-        <a class="item" data-tab="four"><?php _e('Events','sage'); ?></a>
-        <a class="item" data-tab="fifth"><?php _e('Monthly','sage'); ?></a>
+        <a class="active item" data-tab="first"><h4 style="text-transform: uppercase"><?php _e('Directors','sage'); ?></h4></a>
+        <a class="item" data-tab="second"><h4 style="text-transform: uppercase"><?php _e('Cycles','sage'); ?></h4></a>
+        <a class="item" data-tab="third"><h4 style="text-transform: uppercase"><?php _e('Collaborations','sage'); ?></h4></a>
+        <a class="item" data-tab="four"><h4 style="text-transform: uppercase"><?php _e('Events','sage'); ?></h4></a>
+        <a class="item" data-tab="fifth"><h4 style="text-transform: uppercase"><?php _e('Monthly','sage'); ?></h4></a>
     </div>
     <div class="ui bottom attached active tab" data-tab="first">
         <?php get_template_part('templates/archives/directors'); ?>
