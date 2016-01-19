@@ -1,1 +1,1 @@
-<?= 'events' ?>
+<?= "C'est pour bientôt"; ?>

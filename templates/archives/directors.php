@@ -37,7 +37,7 @@ if( $cats && is_array( $cats ) ) {
                 $term_link = get_term_link( $cat );
                 //$url = get_category_link( $cat->term_id );
                 $name = apply_filters( 'the_title', $cat->description );
-                $list .= '<li><a title="' . $name . '" href="' . $term_link . '">' . $name . '</a></li>';
+                $list .= '<li><a title="' . $name . '" href="' . $term_link . '" style="color:black;">' . $name . '</a></li>';
             } 		 $list .= '</ul></li>';
             $list .= '</ul>';
             $list .= '</div>';
