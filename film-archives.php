@@ -51,9 +51,25 @@ function nestedCategories($cat){
 ?>
 
 <div class="ui container">
+    <div id="archive-tab" class="ui top attached tabular menu">
+        <a class="active item" data-tab="first"><?php _e('Directors','sage'); ?></a>
+        <a class="item" data-tab="second"><?php _e('Cycles','sage'); ?></a>
+        <a class="item" data-tab="third"><?php _e('Collaborations','sage'); ?></a>
+        <a class="item" data-tab="four"><?php _e('Events','sage'); ?></a>
+        <a class="item" data-tab="fifth"><?php _e('Chronologic','sage'); ?></a>
+    </div>
+    <div class="ui bottom attached active tab segment" data-tab="first">
+
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="second">
+        Second
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="third">
+        Third
+    </div>
     <div class="">
         <h2><?php _e('Directors','sage'); ?></h2>
-        <?php nestedCategories($directors); ?>
+        <?php get_template_part('templates/archives/directors'); ?>
     </div>
     <br>
     <div class="ui divider"></div>
