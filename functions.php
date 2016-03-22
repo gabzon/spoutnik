@@ -37,3 +37,10 @@ foreach ($sage_includes as $file) {
     }
 }
 unset($file, $filepath);
+
+// add_action('wp_head', 'show_template');
+// function show_template() {
+// 	global $template;
+//     echo '<br>';
+// 	print_r($template);
+// }
