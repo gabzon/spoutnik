@@ -5,7 +5,7 @@ $cycle = array('cycle');
 
 $args = array(
     'orderby'           => 'name',
-    'order'             => 'DESC',
+    'order'             => 'ASC',
     'hide_empty'        => true,
 );
 
