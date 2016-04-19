@@ -31,7 +31,7 @@
                             $movie_date = DateTime::createFromFormat('d/m/Y', $schedule['film_date'][$i])->format('Y-m-d');
                             setlocale(LC_TIME, "fr_FR");
                             $movie_date = new DateTime($movie_date);
-                            echo '<h5 class="uppercase no-margin" style="margin:2px">' . utf8_encode(strftime("%a %e %b", $movie_date->getTimestamp())) . ' &nbsp; ' . $schedule['film_heure'][$i] .'</h5>' ;                                                    
+                            echo '<h5 class="uppercase no-margin" style="margin:2px">' . utf8_encode(strftime("%a %e %b", $movie_date->getTimestamp())) . ' &nbsp; ' . $schedule['film_heure'][$i] .'</h5>' ;
                         }
                         ?>
                         <?php $director = get_the_terms($post->ID,'director'); ?>
@@ -44,7 +44,7 @@
                             <?php if ($director): ?>
                                 <?php _e('Director: ','sage'); ?>
                                 <?php foreach ($director as $x) {
-                                    echo $x->name . ' ';
+                                    echo $x->description . ' ';
                                 } ?>
                                 <br>
                             <?php endif; ?>
