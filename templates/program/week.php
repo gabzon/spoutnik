@@ -19,39 +19,7 @@ $date_next_14_days = new DateTime("now");
 $date_next_14_days->modify('+20 day');
 $date_film_soon = $date_next_14_days->format('Y-m-d');
 
-//echo '14d:' . $date_film_soon . '<br>';
-
 $films_week = array();
-// if ( $query->have_posts() ) {
-//     while ( $query->have_posts() ) {
-//         $query->the_post();
-//         $horaire = get_post_meta($post->ID,'film_horaire',true);
-//         $feature_image = wp_get_attachment_url( get_post_thumbnail_id($film['id']) );
-//         $movie_title = $post->post_title;
-//         for ( $i = 0 ; $i < count($horaire['film_date']) ; $i++ ) {
-//             $movie_projection_date = $horaire['film_date'][$i];
-//             $movie_date_reformatted = DateTime::createFromFormat('d/m/Y', $movie_projection_date)->format('Y-m-d');
-//             $movie_date = new DateTime($movie_date_reformatted);
-//             $movie_projection_year = $movie_date->format("Y");
-//             $movie_projection_month = $movie_date->format("m");
-//             $movie_projection_week = $movie_date->format("W");
-//             if ( $movie_projection_year == $current_year ) {
-//                 if ($movie_projection_month == $current_month) {
-//                     if ($movie_projection_week == $current_week) {
-//                         $film_detail = array(
-//                             'id'    => $post->ID,
-//                             'image' => $feature_image,
-//                             'title' => $movie_title,
-//                             'date'  => $movie_date_reformatted,
-//                             'hour'  => $horaire['film_heure'][$i]
-//                         );
-//                         array_push($films_week, $film_detail);
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
 
 if ( $query->have_posts() ) {
     while ( $query->have_posts() ) {
@@ -70,11 +38,12 @@ if ( $query->have_posts() ) {
                 //$movie_projection_week = $movie_date->format("W");
                 if (($movie_date_reformatted >= $date_now)&($movie_date_reformatted <= $date_film_soon)) {
                     $film_detail = array(
-                        'id'    => $post->ID,
-                        'image' => $feature_image,
-                        'title' => $movie_title,
-                        'date'  => $movie_date_reformatted,
-                        'hour'  => $horaire['film_heure'][$i]
+                        'id'        => $post->ID,
+                        'image'     => $feature_image,
+                        'title'     => $movie_title,
+                        'date'      => $movie_date_reformatted,
+                        'hour'      => $horaire['film_heure'][$i],
+                        'tagline'   => get_post_meta($post->ID,'film_landing',true)
                     );
                     array_push($films_week, $film_detail);
                 }
@@ -121,6 +90,7 @@ array_multisort($date, SORT_ASC, $hour, SORT_ASC, $films_week);
                                 <img src="<?php echo $film['image']; ?>" alt="" class="ui image film-image" />
                             </a>
                             <h3 class="film-title"><?php echo $film['title']; ?></h3>
+                            <h5 class="film-tagline"><?php echo $film['tagline']; ?></h5>
                         </div>
                         <?php setlocale(LC_TIME, "fr_FR"); ?>
                         <?php $movie_date = new DateTime($film['date']);  ?>

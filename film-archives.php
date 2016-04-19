@@ -52,25 +52,29 @@ function nestedCategories($cat){
         <?php echo get_the_category_list(); ?>
     <?php endwhile; ?>
     <div id="archive-tab" class="ui pointing secondary menu">
-        <a class="active item" data-tab="first"><h4 style="text-transform: uppercase"><?php _e('Directors','sage'); ?></h4></a>
-        <a class="item" data-tab="second"><h4 style="text-transform: uppercase"><?php _e('Cycles','sage'); ?></h4></a>
-        <a class="item" data-tab="third"><h4 style="text-transform: uppercase"><?php _e('Collaborations','sage'); ?></h4></a>
-        <a class="item" data-tab="four"><h4 style="text-transform: uppercase"><?php _e('Events','sage'); ?></h4></a>
-        <a class="item" data-tab="fifth"><h4 style="text-transform: uppercase"><?php _e('Monthly','sage'); ?></h4></a>
+        <a class="item active" data-tab="cycle"><h4 style="text-transform: uppercase"><?php _e('Cycles','sage'); ?></h4></a>
+        <a class="item" data-tab="event"><h4 style="text-transform: uppercase"><?php _e('Events','sage'); ?></h4></a>
+        <a class="item" data-tab="collaboration"><h4 style="text-transform: uppercase"><?php _e('Collaborations','sage'); ?></h4></a>
+        <a class="item" data-tab="director"><h4 style="text-transform: uppercase"><?php _e('Directors','sage'); ?></h4></a>
+        <a class="item" data-tab="country"><h4 style="text-transform: uppercase"><?php _e('Pays','sage'); ?></h4></a>
+        <a class="item" data-tab="month"><h4 style="text-transform: uppercase"><?php _e('Monthly','sage'); ?></h4></a>
     </div>
-    <div class="ui bottom attached active tab" data-tab="first">
-        <?php get_template_part('templates/archives/directors'); ?>
-    </div>
-    <div class="ui bottom attached tab" data-tab="second">
+    <div class="ui bottom attached active tab" data-tab="cycle">
         <?php get_template_part('templates/archives/cycles'); ?>
     </div>
-    <div class="ui bottom attached tab" data-tab="third">
-        <?php get_template_part('templates/archives/collaborations'); ?>
-    </div>
-    <div class="ui bottom attached tab" data-tab="four">
+    <div class="ui bottom attached tab" data-tab="event">
         <?php get_template_part('templates/archives/events'); ?>
     </div>
-    <div class="ui bottom attached tab" data-tab="fifth">
+    <div class="ui bottom attached tab" data-tab="collaboration">
+        <?php get_template_part('templates/archives/collaborations'); ?>
+    </div>
+    <div class="ui bottom attached tab" data-tab="director">
+        <?php get_template_part('templates/archives/directors'); ?>
+    </div>
+    <div class="ui bottom attached tab" data-tab="country">
+        <?php get_template_part('templates/archives/country'); ?>
+    </div>
+    <div class="ui bottom attached tab" data-tab="month">
         <?php get_template_part('templates/archives/monthly'); ?>
     </div>
 </div>
