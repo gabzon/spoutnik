@@ -47,7 +47,7 @@
                         <table>
                             <?php if ($director): ?>
                                 <tr>
-                                    <td valign="top" width="40%"><h5><?php _e('Director','sage'); ?></h5></td>
+                                    <td valign="top" width="40%"><h5><?php _e('Director','sage'); ?> </h5> </td>
                                     <td>
                                         <h5>
                                             <?php foreach ($director as $x): ?>
@@ -94,7 +94,7 @@
                                 </tr>
                                 <br>
                             <?php endif ?>
-                            <?php if (get_post_meta($post->ID,'film_actors')): ?>
+                            <?php if (get_post_meta($post->ID,'film_actors',true)): ?>
                                 <tr>
                                     <tr>
                                         <td valign="top"><h5><?php _e('Actors','sage'); ?></h5></td>
