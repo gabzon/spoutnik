@@ -56,7 +56,7 @@ function nestedCategories($cat){
         <a class="item" data-tab="event"><h4 style="text-transform: uppercase"><?php _e('Events','sage'); ?></h4></a>
         <a class="item" data-tab="collaboration"><h4 style="text-transform: uppercase"><?php _e('Collaborations','sage'); ?></h4></a>
         <a class="item" data-tab="director"><h4 style="text-transform: uppercase"><?php _e('Directors','sage'); ?></h4></a>
-        <a class="item" data-tab="country"><h4 style="text-transform: uppercase"><?php _e('Pays','sage'); ?></h4></a>
+        <a class="item" data-tab="country"><h4 style="text-transform: uppercase"><?php _e('Country','sage'); ?></h4></a>
         <a class="item" data-tab="month"><h4 style="text-transform: uppercase"><?php _e('Monthly','sage'); ?></h4></a>
     </div>
     <div class="ui bottom attached active tab" data-tab="cycle">

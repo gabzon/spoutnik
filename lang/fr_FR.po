@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Spoutnik\n"
-"POT-Creation-Date: 2016-01-19 20:47+0100\n"
+"POT-Creation-Date: 2016-05-03 19:46+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,23 +44,28 @@ msgstr "Réglages"
 msgid "Save Settings"
 msgstr "Sauvegarder les réglages"
 
-#: ../film-archives.php:55 ../model/taxonomy/director.php:11
-msgid "Directors"
-msgstr "Réalisation"
-
-#: ../film-archives.php:56 ../model/taxonomy/cycle.php:10
+#: ../film-archives.php:55 ../model/taxonomy/cycle.php:10
 msgid "Cycles"
 msgstr "Cycles"
+
+#: ../film-archives.php:56
+msgid "Events"
+msgstr "Evènements"
 
 #: ../film-archives.php:57
 msgid "Collaborations"
 msgstr "Collaborations"
 
-#: ../film-archives.php:58
-msgid "Events"
-msgstr "Evènements"
+#: ../film-archives.php:58 ../model/taxonomy/director.php:11
+msgid "Directors"
+msgstr "Réalisation"
 
-#: ../film-archives.php:59
+#: ../film-archives.php:59 ../model/taxonomy/country.php:11
+#: ../templates/content-single-film.php:63
+msgid "Country"
+msgstr "Pays"
+
+#: ../film-archives.php:60
 msgid "Monthly"
 msgstr "Par mois"
 
@@ -69,7 +74,7 @@ msgstr "Par mois"
 msgid "Error locating %s for inclusion"
 msgstr "Erreurr localiser %s pour inclusion"
 
-#: ../index.php:7 ../search.php:6
+#: ../index.php:5 ../search.php:6
 msgid "Sorry, no results were found."
 msgstr "Désolé, rien n'a été trouvé. :("
 
@@ -232,10 +237,6 @@ msgstr "Couleurs populaire"
 msgid "Search couleurs"
 msgstr "Rechercher dans les couleurs"
 
-#: ../model/taxonomy/country.php:11
-msgid "Country"
-msgstr "Pays"
-
 #: ../model/taxonomy/country.php:12
 msgid "All Countries"
 msgstr "Tous pays"
@@ -380,7 +381,7 @@ msgstr "Réalisateurs populaires"
 msgid "Search Directors"
 msgstr "Rechercher dans les réalisateur"
 
-#: ../model/taxonomy/format.php:11
+#: ../model/taxonomy/format.php:11 ../templates/content-single-film.php:88
 msgid "Format"
 msgstr "Format"
 
@@ -432,9 +433,9 @@ msgstr "Formats populaire"
 msgid "Search Formats"
 msgstr "Rechercher dans les formats"
 
-#: ../model/taxonomy/language.php:11
+#: ../model/taxonomy/language.php:11 ../templates/content-single-film.php:81
 msgid "Language"
-msgstr "Language"
+msgstr "Langue"
 
 #: ../model/taxonomy/language.php:12
 msgid "All Languages"
@@ -484,7 +485,7 @@ msgstr "Langues populaires"
 msgid "Search Languages"
 msgstr "Rechercher dans les langues"
 
-#: ../model/taxonomy/year.php:11
+#: ../model/taxonomy/year.php:11 ../templates/content-single-film.php:75
 msgid "Year"
 msgstr "Année"
 
@@ -565,6 +566,7 @@ msgid "Schedule"
 msgstr "Planning"
 
 #: ../piklist/parts/meta-boxes/film.php:44
+#: ../templates/content-single-film.php:94
 msgid "Duration"
 msgstr "Durée"
 
@@ -649,36 +651,20 @@ msgstr "Commentaires récents &rarr;"
 msgid "Comments are closed."
 msgstr "Commentaires fermés."
 
-#: ../templates/content-page.php:2 ../templates/content-single-film.php:106
+#: ../templates/content-page.php:2 ../templates/content-single-film.php:128
 #: ../templates/content-single.php:15
 msgid "Pages:"
 msgstr "Pages:"
 
-#: ../templates/content-single-film.php:45 ../templates/today-films.php:27
-msgid "Director: "
-msgstr "Réalisation:"
+#: ../templates/content-single-film.php:51
+msgid "Director"
+msgstr "Réalisation"
 
-#: ../templates/content-single-film.php:53 ../templates/today-films.php:35
-msgid "Country: "
-msgstr "Pays :"
+#: ../templates/content-single-film.php:102
+msgid "Actors"
+msgstr "Avec"
 
-#: ../templates/content-single-film.php:60 ../templates/today-films.php:43
-msgid "Year: "
-msgstr "Année :"
-
-#: ../templates/content-single-film.php:68 ../templates/today-films.php:51
-msgid "Language: "
-msgstr "Langue :"
-
-#: ../templates/content-single-film.php:76 ../templates/today-films.php:59
-msgid "Format: "
-msgstr "Format :"
-
-#: ../templates/content-single-film.php:84 ../templates/today-films.php:65
-msgid "Duration: "
-msgstr "Durée :"
-
-#: ../templates/content-single-film.php:91
+#: ../templates/content-single-film.php:111
 msgid "Website"
 msgstr "Website"
 
@@ -699,7 +685,7 @@ msgstr "Aujourd’hui"
 msgid "Next 30 days"
 msgstr "Prochainement"
 
-#: ../templates/program/week.php:110
+#: ../templates/program/week.php:79
 msgid "Next 20 days"
 msgstr "Prochainement"
 
@@ -762,6 +748,30 @@ msgstr "INFO"
 #: ../templates/today-films.php:22
 msgid "More info"
 msgstr "Plus d’infos"
+
+#: ../templates/today-films.php:27
+msgid "Director: "
+msgstr "Réalisation:"
+
+#: ../templates/today-films.php:35
+msgid "Country: "
+msgstr "Pays :"
+
+#: ../templates/today-films.php:43
+msgid "Year: "
+msgstr "Année :"
+
+#: ../templates/today-films.php:51
+msgid "Language: "
+msgstr "Langue :"
+
+#: ../templates/today-films.php:59
+msgid "Format: "
+msgstr "Format :"
+
+#: ../templates/today-films.php:65
+msgid "Duration: "
+msgstr "Durée :"
 
 #: ../templates/today-films.php:92
 msgid "Nothing at Spoutnik for today!"
