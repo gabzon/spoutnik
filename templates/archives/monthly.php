@@ -10,7 +10,7 @@ $args = array(
 );
 
 $cats = get_terms($program, $args);
-piklist::pre($cats);
+//piklist::pre($cats);
 ?>
 <ul class="archives-links">
         <?php foreach ($cats as $cat): ?>
