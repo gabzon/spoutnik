@@ -5,7 +5,7 @@ $program = array('program');
 
 $args = array(
     'orderby'           => 'name',
-    'order'             => 'ASC',
+    'order'             => 'DESC',
     'hide_empty'        => true
 );
 

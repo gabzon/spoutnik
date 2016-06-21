@@ -18,14 +18,7 @@ foreach( $cats as $cat ) {
         $taxonomy_name = 'cycle';
         $termchildren = get_term_children( $term_id, $taxonomy_name );
         echo '<h3>Cycles réguliers</h3>';
-        echo '<ul class="archives-links">';
-        foreach ( $termchildren as $child ) {
-            //if (!($child == '218')) {
-                $term = get_term_by( 'id', $child, $taxonomy_name );
-                echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
-            //}
-        }
-        echo '</ul>';
+        display_order_alphabeticaly($termchildren, 'cycle');
     }
 
     if ($cat->slug === 'cycles-focus') {
@@ -34,14 +27,7 @@ foreach( $cats as $cat ) {
         $termchildren = get_term_children( $term_id, $taxonomy_name );
 
         echo '<h3>Cycles ponctuels</h3>';
-        echo '<ul class="archives-links">';
-        foreach ( $termchildren as $child ) {
-            //if (!($child == '218')) {
-                $term = get_term_by( 'id', $child, $taxonomy_name );
-            	echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
-            //}
-        }
-        echo '</ul>';
+        display_order_alphabeticaly($termchildren, 'cycle');
     }
 
 

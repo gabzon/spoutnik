@@ -20,12 +20,7 @@ foreach( $cats as $cat ) {
         $taxonomy_name = 'cycle';
         $termchildren = get_term_children( $term_id, $taxonomy_name );
         echo '<h3>Lieux culturels</h3>';
-        echo '<ul class="archives-links">';
-        foreach ( $termchildren as $child ) {
-        	$term = get_term_by( 'id', $child, $taxonomy_name );
-        	echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
-        }
-        echo '</ul>';
+        display_order_alphabeticaly($termchildren, 'cycle');
     }
 
     if ($cat->slug === 'collaboration-festival') {
@@ -33,12 +28,7 @@ foreach( $cats as $cat ) {
         $taxonomy_name = 'cycle';
         $termchildren = get_term_children( $term_id, $taxonomy_name );
         echo '<h3>Festivals / Événements</h3>';
-        echo '<ul class="archives-links">';
-        foreach ( $termchildren as $child ) {
-            $term = get_term_by( 'id', $child, $taxonomy_name );
-            echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
-        }
-        echo '</ul>';
+        display_order_alphabeticaly($termchildren, 'cycle');
     }
 
     if ($cat->slug === 'collaboration-institutions') {
@@ -46,12 +36,7 @@ foreach( $cats as $cat ) {
         $taxonomy_name = 'cycle';
         $termchildren = get_term_children( $term_id, $taxonomy_name );
         echo '<h3>Institutions</h3>';
-        echo '<ul class="archives-links">';
-        foreach ( $termchildren as $child ) {
-            $term = get_term_by( 'id', $child, $taxonomy_name );
-            echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
-        }
-        echo '</ul>';
+        display_order_alphabeticaly($termchildren, 'cycle');
     }
 
     if ($cat->slug === 'collaboration-associations') {
@@ -59,12 +44,7 @@ foreach( $cats as $cat ) {
         $taxonomy_name = 'cycle';
         $termchildren = get_term_children( $term_id, $taxonomy_name );
         echo '<h3>Associations / Collectifs</h3>';
-        echo '<ul class="archives-links">';
-        foreach ( $termchildren as $child ) {
-            $term = get_term_by( 'id', $child, $taxonomy_name );
-            echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
-        }
-        echo '</ul>';
+        display_order_alphabeticaly($termchildren, 'cycle');
     }
 }
 

@@ -10,6 +10,7 @@
 * @link https://github.com/roots/sage/pull/1042
 */
 $sage_includes = array(
+    'lib/spoutnik.php',
     'lib/utils.php',                 // Utility functions
     'lib/init.php',                  // Initial theme setup and constants
     'lib/wrapper.php',               // Theme wrapper class
