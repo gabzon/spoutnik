@@ -24,33 +24,32 @@ $films_week = array();
 if ( $query->have_posts() ) {
     while ( $query->have_posts() ) {
         $query->the_post();
-        $horaire = get_post_meta($post->ID,'film_horaire',true);
+        $schedule = get_post_meta($post->ID,'film_horaire',true);
+
         $feature_image = wp_get_attachment_url( get_post_thumbnail_id());
         $movie_title = $post->post_title;
 
-        if ($horaire) {
-            for ( $i = 0 ; $i < count($horaire['film_date']) ; $i++ ) {
-                $movie_projection_date = $horaire['film_date'][$i];
+        if ($schedule) {
+            foreach ($schedule as $key) {
+                $movie_projection_date = $key['film_date'];
                 $movie_date_reformatted = DateTime::createFromFormat('d/m/Y', $movie_projection_date)->format('Y-m-d');
-                //$movie_date = new DateTime($movie_date_reformatted);
-                //$movie_projection_year = $movie_date->format("Y");
-                //$movie_projection_month = $movie_date->format("m");
-                //$movie_projection_week = $movie_date->format("W");
                 if (($movie_date_reformatted >= $date_now)&($movie_date_reformatted <= $date_film_soon)) {
                     $film_detail = array(
                         'id'        => $post->ID,
                         'image'     => $feature_image,
                         'title'     => $movie_title,
                         'date'      => $movie_date_reformatted,
-                        'hour'      => $horaire['film_heure'][$i],
+                        'hour'      => $key['film_heure'],
                         'tagline'   => get_post_meta($post->ID,'film_landing',true)
                     );
                     array_push($films_week, $film_detail);
                 }
             }
         }
-
-        $last_projection = DateTime::createFromFormat('d/m/Y', end($horaire['film_date']))->format('Y-m-d');
+        $last_date = $schedule[count($schedule)-1]['film_date'];
+        //piklist::pre($schedule);
+        //echo $last_date;
+        $last_projection = DateTime::createFromFormat('d/m/Y', $schedule[count($schedule)-1]['film_date'])->format('Y-m-d');
         if ($last_projection < $date_now) {
             $wpdb->update( $wpdb->posts, array( 'post_status' => 'inactive' ), array( 'ID' => $post->ID ) );
             clean_post_cache( $post->ID );
@@ -89,14 +88,13 @@ array_multisort($date, SORT_ASC, $hour, SORT_ASC, $films_week);
                             <a href="<?php echo esc_url( get_permalink( $film['id'] ) ); ?>">
                                 <img src="<?php echo $film['image']; ?>" alt="" class="ui image film-image" />
                             </a>
-                            <h3 class="film-title"><?php echo $film['title']; ?></h3>
-                            <h5 class="film-tagline"><?php echo $film['tagline']; ?></h5>
+                            <h3 class="film-title" style="text-shadow: 1px 1px black;"><?php echo $film['title']; ?></h3>
+                            <h5 class="film-tagline" style="text-shadow: 1px 1px black;"><?php echo $film['tagline']; ?></h5>
                         </div>
                         <?php setlocale(LC_TIME, "fr_FR"); ?>
                         <?php $movie_date = new DateTime($film['date']);  ?>
                         <h3 class="film-week-detail">
                             <?php echo utf8_encode(strftime("%a %e %b", $movie_date->getTimestamp())) . ', ' . $film['hour'] ; ?>
-
                         </h3>
                         <?php $director = get_the_terms($film['id'],'director'); ?>
                         <?php $country = get_the_terms($film['id'],'country'); ?>

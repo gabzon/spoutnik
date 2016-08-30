@@ -14,7 +14,7 @@ function display_order_alphabeticaly($termchildren, $tax_name){
     sort($orderArray);
     echo '<ul class="archives-links">';
     foreach ($orderArray as $key) {
-        echo '<li><a href=" '. $key['link'] .' ">' . $key['name'] . '</a></li>';
+        echo '<li><a href=" '. $key['link'] .' " target="_blank">' . $key['name'] . '</a></li>';
     }
     echo '</ul>';
 }

@@ -50,7 +50,7 @@ msgstr "Cycles"
 
 #: ../film-archives.php:56
 msgid "Events"
-msgstr "Evènements"
+msgstr "Événements"
 
 #: ../film-archives.php:57
 msgid "Collaborations"

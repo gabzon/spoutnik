@@ -29,15 +29,18 @@
                     </div>
                     <div class="four wide column">
                         <?php $schedule = get_post_meta($post->ID,'film_horaire',true); ?>
+                        <?php foreach ($schedule as $key): ?>
+                            <?php $movie_date = DateTime::createFromFormat('d/m/Y', $key['film_date'])->format('Y-m-d'); ?>
+                            <?php setlocale(LC_TIME, "fr_FR"); ?>
+                            <?php $movie_date = new DateTime($movie_date); ?>
+                            <h5 class="uppercase no-margin" style="margin:2px">
+                                <?php echo utf8_encode(strftime("%a %e %b %G", $movie_date->getTimestamp())); ?>
+                                &nbsp;
+                                <?php echo $key['film_heure']; ?>
+                            </h5>
+                        <?php endforeach; ?>
+
                         <?php $website = get_post_meta($post->ID,'film_website',true); ?>
-                        <?php
-                        for ( $i=0 ; $i < count($schedule['film_date']); $i++) {
-                            $movie_date = DateTime::createFromFormat('d/m/Y', $schedule['film_date'][$i])->format('Y-m-d');
-                            setlocale(LC_TIME, "fr_FR");
-                            $movie_date = new DateTime($movie_date);
-                            echo '<h5 class="uppercase no-margin" style="margin:2px">' . utf8_encode(strftime("%a %e %b %G", $movie_date->getTimestamp())) . ' &nbsp; ' . $schedule['film_heure'][$i] .'</h5>' ;
-                        }
-                        ?>
                         <?php $director = get_the_terms($post->ID,'director'); ?>
                         <?php $country = get_the_terms($post->ID,'country'); ?>
                         <?php $language = get_the_terms($post->ID,'language'); ?>
@@ -104,7 +107,7 @@
                             <?php endif; ?>
 
                                 <tr>
-                                    <td valign="top"><h5><?php _e('Cycle','sage'); ?></h5></td>
+                                    <td valign="top" width="40%"><h5><?php _e('Cycle','sage'); ?></h5></td>
                                     <td>
                                         <h5 style="color:black;"><?php the_terms( $post->ID, 'cycle', '', '<br>' ); ?></h5>
                                     </td>

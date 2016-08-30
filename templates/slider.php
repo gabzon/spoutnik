@@ -21,7 +21,7 @@ $query = new WP_Query( $args );
                     <div class="container">
                         <h4>
                             <span style="text-transform:uppercase">
-                                <a href="<?php echo the_permalink(); ?>" style="color:white">
+                                <a href="<?php echo the_permalink(); ?>" style="color:white; text-shadow: 1px 1px black;">
                                     <?php echo the_title(); ?><br>
                                     <?= get_post_meta($post->ID,'film_landing',true) ?>
                                 </a>

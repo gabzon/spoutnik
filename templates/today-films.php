@@ -16,7 +16,7 @@
                 </div>
                 <div class="ui grid stackable">
                     <div class="five wide column">
-                        <p>                            
+                        <p>
                             <?php echo $movie['excerpt']; ?>
                         </p>
                         <a href="<?php echo esc_url($movie['link']); ?>" class="landing-info"><?php _e('More info','sage'); ?></a>
@@ -62,8 +62,10 @@
                                 } ?>
                                 <br>
                             <?php endif ?>
-                            <?php _e('Duration: ','sage'); ?>
-                            <?php echo $movie['duration']; ?>
+                            <?php if ($movie['duration']): ?>
+                                <?php _e('Duration: ','sage'); ?>
+                                <?php echo $movie['duration']; ?>
+                            <?php endif ?>
                         </h5>
                         <br><br>
                     </div>

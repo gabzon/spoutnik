@@ -23,6 +23,7 @@ $full_program = $theme_options['spoutnik_programme_complet'];
             </div>
         </div>
         <?php get_template_part('templates/today-films'); ?>
+
         <?php get_template_part('templates/program/week'); ?>
         <div class="ui one column grid">
             <div class="column center aligned">
