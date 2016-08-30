@@ -16,6 +16,7 @@
         <div class="seven wide column">
             <img src="<?= $image_cycle[0]; ?>" alt="" class="ui image" />
             <br>
+            <?php $pdf = get_term_meta(get_queried_object()->term_id, 'program_pdf', false); ?>
             <?php if ( $pdf[0] ): ?>
                 <?php $pdf = get_term_meta(get_queried_object()->term_id, 'program_pdf', false); ?>
                 <a href="<?= esc_url($pdf[0]); ?>" class="ui button">
