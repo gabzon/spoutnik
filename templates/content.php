@@ -20,7 +20,3 @@
         </div>
     </article>
 </div>
-
-if(  ) {
-    // do something
-}
