@@ -6,13 +6,12 @@
                 <img src="<?php echo $thumb['0']; ?>" alt="" class="ui image"/>
             </a>
             <h2 class="entry-title"><a href="<?php the_permalink(); ?>" class="title-link"><?php the_title(); ?></a></h2>
-            <?php if (has_term( 'jeune-public' )): ?>
-                YOOOHOOO!
+            <?php if ( has_term( 'jeune-public' ) ): ?>
+                <?php echo 'Je suis un jeune public'; ?>
             <?php endif; ?>
             <?php if (get_post_meta($post->ID,'film_landing',true)): ?>
                 <h4><?= get_post_meta($post->ID,'film_landing',true) ?></h4>
             <?php endif; ?>
-            <?php //get_template_part('templates/entry-meta'); ?>
         </header>
         <br>
         <div class="entry-summary">
