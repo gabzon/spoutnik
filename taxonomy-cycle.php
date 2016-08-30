@@ -28,12 +28,10 @@
 <div class="ui container">
     <div class="ui four column grid stackable">
         <?php while (have_posts()) : the_post(); ?>
-            <?php $date = get_post_meta(get_the_ID(),'film_horaire'); ?>
-            <?php $film_date = $date[0][0]['film_date']; ?>
+            <?php //$date = get_post_meta(get_the_ID(),'film_horaire'); ?>
+            <?php //$film_date = $date[0][0]['film_date']; ?>
             <?php //piklist::pre($date); ?>
-            <?php  if (strtotime($film_date) < time()) : ?>
-                before
-            <?php endif ?>
+            <?php //if (strtotime($film_date) < time()) : {} ?>
             <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
         <?php endwhile; ?>
     </div>
