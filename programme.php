@@ -6,6 +6,12 @@
 $theme_options = get_option('my_theme_settings');
 $colorpicker = $theme_options['colorpicker'];
 ?>
+
+asdlkfjasd
+aléskdfj
+
+
+
 <div class="program-wrapper" style="background: <?php echo $colorpicker; ?>">
     <div class="" style="background:#fefefe">
         <br>
