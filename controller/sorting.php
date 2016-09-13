@@ -12,6 +12,38 @@ function todays_movies(){
             $schedule = get_post_meta(get_the_ID(),'film_horaire',true);
             $duration = get_post_meta(get_the_ID(),'film_duration',true);
 
+            //the_title();
+            //piklist::pre($schedule);
+            foreach ($schedule as $key) {
+                //echo $key['film_date'] . '<br>';
+                $movie_iso_date = DateTime::createFromFormat('d/m/Y', $key['film_date'])->format('Y-m-d');
+                //echo $movie_iso_date . '<br>';
+                if (date('Y-m-d') == $movie_iso_date) {
+                    $director = get_the_terms($post->ID,'director');
+                    $countries = get_the_terms($post->ID,'country');
+                    $languages = get_the_terms($post->ID,'language');
+                    $year = get_the_terms($post->ID,'film-year');
+                    $format = get_the_terms($post->ID,'format');
+
+                    $featured_image = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
+                    $film_detail = array(
+                        'id'        => get_the_ID(),
+                        'image'     => $featured_image,
+                        'title'     => get_the_title(),
+                        'duration'  => $duration,
+                        'excerpt'   => get_the_excerpt(),
+                        'link'      => get_permalink(),
+                        'date'      => $movie_iso_date,
+                        'hour'      => $schedule['film_heure'][$i],
+                        'director'  => $director,
+                        'country'   => $countries,
+                        'language'  => $languages,
+                        'year'      => $year,
+                        'format'    => $format,
+                    );
+                    array_push($todays_movies, $film_detail);
+                }
+            }
             for ($i = 0; $i < count($schedule['film_date']); $i++) {
                 $movie_iso_date = DateTime::createFromFormat('d/m/Y', $schedule['film_date'][$i])->format('Y-m-d');
                 if (date('Y-m-d') == $movie_iso_date) {
