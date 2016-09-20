@@ -3,7 +3,7 @@
 $args = array (
 'post_type'              => array( 'film' ),
 'category_name'          => 'landing-page',
-'order'                  => 'DESC',
+'order'                  => 'ASC',
 );
 
 // The Query
