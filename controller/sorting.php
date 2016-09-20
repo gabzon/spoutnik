@@ -34,35 +34,7 @@ function todays_movies(){
                         'excerpt'   => get_the_excerpt(),
                         'link'      => get_permalink(),
                         'date'      => $movie_iso_date,
-                        'hour'      => $schedule['film_heure'][$i],
-                        'director'  => $director,
-                        'country'   => $countries,
-                        'language'  => $languages,
-                        'year'      => $year,
-                        'format'    => $format,
-                    );
-                    array_push($todays_movies, $film_detail);
-                }
-            }
-            for ($i = 0; $i < count($schedule['film_date']); $i++) {
-                $movie_iso_date = DateTime::createFromFormat('d/m/Y', $schedule['film_date'][$i])->format('Y-m-d');
-                if (date('Y-m-d') == $movie_iso_date) {
-                    $director = get_the_terms($post->ID,'director');
-                    $countries = get_the_terms($post->ID,'country');
-                    $languages = get_the_terms($post->ID,'language');
-                    $year = get_the_terms($post->ID,'film-year');
-                    $format = get_the_terms($post->ID,'format');
-
-                    $featured_image = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
-                    $film_detail = array(
-                        'id'        => get_the_ID(),
-                        'image'     => $featured_image,
-                        'title'     => get_the_title(),
-                        'duration'  => $duration,
-                        'excerpt'   => get_the_excerpt(),
-                        'link'      => get_permalink(),
-                        'date'      => $movie_iso_date,
-                        'hour'      => $schedule['film_heure'][$i],
+                        'hour'      => $key['film_heure'],
                         'director'  => $director,
                         'country'   => $countries,
                         'language'  => $languages,
@@ -98,29 +70,29 @@ function date_sorting($film_list){
             $horaire = get_post_meta($post->ID,'film_horaire',true);
             $movie_title = $post->post_title;
 
-            for ( $i = 0 ; $i < count($horaire['film_date']) ; $i++ ) {
-                $movie_projection_date = $horaire['film_date'][$i];
-                $movie_date_reformatted = DateTime::createFromFormat('d/m/Y', $movie_projection_date)->format('Y-m-d');
-                $movie_date = new DateTime($movie_date_reformatted);
-                $movie_projection_year = $movie_date->format("Y");
-                $movie_projection_month = $movie_date->format("m");
-                $movie_projection_week = $movie_date->format("W");
-                if ( $movie_projection_year == $current_year ) {
-                    if ($movie_projection_month == $current_month) {
+            foreach ($horaire as $key) {
+              $movie_projection_date = $key['film_date'];
+              $movie_date_reformatted = DateTime::createFromFormat('d/m/Y', $movie_projection_date)->format('Y-m-d');
+              $movie_date = new DateTime($movie_date_reformatted);
+              $movie_projection_year = $movie_date->format("Y");
+              $movie_projection_month = $movie_date->format("m");
+              $movie_projection_week = $movie_date->format("W");
+              if ( $movie_projection_year == $current_year ) {
+                  if ($movie_projection_month == $current_month) {
 
-                        if ($movie_projection_week == $current_week) {
-                            $feature_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-                            $film_detail = array(
-                                'id'    => $post->ID,
-                                'image' => $feature_image,
-                                'title' => $movie_title,
-                                'date'  => $movie_date_reformatted,
-                                'hour'  => $horaire['film_heure'][$i]
-                            );
-                            array_push($films_week, $film_detail);
-                        }
-                    }
-                }
+                      if ($movie_projection_week == $current_week) {
+                          $feature_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                          $film_detail = array(
+                              'id'    => $post->ID,
+                              'image' => $feature_image,
+                              'title' => $movie_title,
+                              'date'  => $movie_date_reformatted,
+                              'hour'  => $key['film_heure']
+                          );
+                          array_push($films_week, $film_detail);
+                      }
+                  }
+              }
             }
         }
     }
