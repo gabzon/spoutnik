@@ -14,7 +14,9 @@
     <div class="ui grid stackable">
         <div class="one wide column"></div>
         <div class="seven wide column">
+          <?php if ($image_cycle[0]): ?>
             <img src="<?= $image_cycle[0]; ?>" alt="" class="ui image" />
+          <?php endif; ?>
             <br>
             <?php $pdf = get_term_meta(get_queried_object()->term_id, 'program_pdf', false); ?>
             <?php if ( $pdf[0] ): ?>
@@ -33,10 +35,20 @@
 <br>
 <br>
 <br>
+<?php $program = []; ?>
+
+<?php while (have_posts()) :  ?>
+    <?php $program[] = the_post(); ?>
+    <?php //get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+<?php endwhile; ?>
+
+<?php array_reverse($program); ?>
+
+<?php piklist::pre($program); ?>
 <div class="ui container">
     <div class="ui four column grid stackable">
-        <?php while (have_posts()) : the_post(); ?>
-            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+        <?php while ($program) : the_post(); ?>
+            <?php //get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
         <?php endwhile; ?>
     </div>
     <?php the_posts_navigation(); ?>
