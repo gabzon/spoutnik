@@ -44,11 +44,11 @@
 
 <?php array_reverse($program); ?>
 
-<?php piklist::pre($program); ?>
+<?php //piklist::pre($program); ?>
 <div class="ui container">
     <div class="ui four column grid stackable">
         <?php while ($program) : the_post(); ?>
-            <?php //get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
         <?php endwhile; ?>
     </div>
     <?php the_posts_navigation(); ?>

@@ -61,7 +61,7 @@ $current_month = date('m');
                     <?php endif; ?>
                   <?php
                 setlocale(LC_TIME, "fr_FR");
-                echo '<h5 class="h5-regular">'. utf8_encode(strftime("%a %e %b", $movie_date->getTimestamp())) . ', ' . $horaire['film_heure'][$i] . '</h5>';
+                echo '<h5 class="h5-regular">'. utf8_encode(strftime("%a %e %b", $movie_date->getTimestamp())) . ', ' . $key['film_heure'] . '</h5>';
               }
             }
           }
