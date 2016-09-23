@@ -35,19 +35,10 @@
 <br>
 <br>
 <br>
-<?php $program = []; ?>
 
-<?php while (have_posts()) :  ?>
-    <?php $program[] = the_post(); ?>
-    <?php //get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-<?php endwhile; ?>
-
-<?php array_reverse($program); ?>
-
-<?php //piklist::pre($program); ?>
 <div class="ui container">
     <div class="ui four column grid stackable">
-        <?php while ($program) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); ?>
             <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
         <?php endwhile; ?>
     </div>
