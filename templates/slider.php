@@ -1,6 +1,7 @@
 <?php
 
 $args = array (
+'post_type'              => array( 'film','post' ),
 'category_name'          => 'landing-page',
 'order'                  => 'ASC',
 );
