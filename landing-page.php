@@ -61,16 +61,16 @@ $full_program = $theme_options['spoutnik_programme_complet'];
   $posts = get_posts( $args ); ?>
   <div class="ui grid four column stackable">
     <?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
-      <div class="two wide column"></div>
-      <div class="eight wide column">
+      <div class="three wide column"></div>
+      <div class="seven wide column">
         <h1><a href="<?php the_permalink(); ?>" style="color:black; text-transform:uppercase;"><?php the_title(); ?></a></h1>
         <?php the_excerpt(); ?>
       </div>
-      <div class="five wide column">
+      <div class="four wide column">
         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full'); ?>
         <img src="<?= $image[0]; ?>" alt="" class="ui image"/>
       </div>
-      <div class="one wide column"></div>
+      <div class="two wide column"></div>
     <?php endforeach;
     wp_reset_postdata();?>
   </div>
