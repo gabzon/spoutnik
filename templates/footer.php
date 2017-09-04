@@ -34,7 +34,7 @@ $cinema_address = $theme_options['spoutnik_address_cinema'];
 						</td>
 					</tr>
 				</table>
-                <?php dynamic_sidebar('sidebar-footer'); ?>
+                <?php //dynamic_sidebar('sidebar-footer'); ?>
             </div>
             <div class="column">
 				<h3>INFOS</h3>
