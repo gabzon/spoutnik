@@ -60,7 +60,7 @@
       <div class="column">
         <article <?php post_class(); ?>>
           <header>
-            <a href="<?php $key['link']; ?>">
+            <a href="<?= $key['link']; ?>">
               <img src="<?= $key['image'][0] ?>" alt="" class="ui image"/>
             </a>
             <h2 class="entry-title"><a href="<?= $key['link']; ?>" class="title-link"><?= $key['title']; ?></a></h2>
