@@ -10,9 +10,11 @@ $args = array (
 $query = new WP_Query( $args );
 ?>
 
+
+
 <?php if ( $query->have_posts() ) :  ?>
     <div id="slides">
-        <ul class="slides-container">
+        <ul class="slides-container" style="height:70% !important;">
             <?php while ( $query->have_posts() ): ?>
                 <?php $query->the_post();  ?>
                 <li>
@@ -20,7 +22,7 @@ $query = new WP_Query( $args );
                     <img src="<?php echo $feature_image; ?>" alt="" class="ui image"/>
                     <div class="container">
                         <h4>
-                            <span style="text-transform:uppercase">
+                            <span style="text-transform:uppercase; text-align:center;">
                                 <a href="<?php echo the_permalink(); ?>" style="color:white; text-shadow: 1px 1px black;">
                                     <?php echo the_title(); ?><br>
                                     <?= get_post_meta($post->ID,'film_landing',true) ?>
@@ -29,15 +31,6 @@ $query = new WP_Query( $args );
                             <br>
                             <?php //echo get_post_meta($post->ID,'film_landing',true) ?>
                         </h4>
-                    </div>
-                    <div class="ui grid" style="position: absolute; right: 20px; bottom:0px;">
-                        <div class="computer tablet only row">
-                            <h3 class="ui icon header inverted">
-                                <a href="#land" style="color:white;">
-                                    <i class="circular chevron down icon"></i>
-                                </a>
-                            </h3>
-                        </div>
                     </div>
                 </li>
 

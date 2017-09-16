@@ -30,7 +30,7 @@ $full_program = $theme_options['spoutnik_programme_complet'];
         <?php //$page = get_page_by_title( 'Programme' ); ?>
         <?php if ($full_program): ?>
           <a href="<?php echo esc_url( $full_program ); ?>" style="color:black">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/programme_complet.svg" alt="" />
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/journal-spoutnik-v3.svg" width="150" alt="" />
             <br>
             <?php _e('full program','sage'); ?>
           </a>
