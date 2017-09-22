@@ -44,7 +44,7 @@ $cinema_address = $theme_options['spoutnik_address_cinema'];
 						<td valign="top" style="padding:5px 0;">
 							<h5>
 								Alice Riva<br>
-								Daniel Siemasko
+								Daniel Siemaszko                
 							</h5>
 						</td>
 					</tr>
